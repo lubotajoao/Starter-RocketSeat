@@ -11,16 +11,28 @@
     function retornaSexo(sexo){
       // M, F
       // Masculino, Feminino
-      if(sexo === 'M' | sexo === 'm'){
-        return "Masculino";
-      } else if (sexo === 'F' | sexo === 'f'){
-        return "Feminino";
-      } else {
-        return 'Outro';
+    //   if(sexo === 'M' | sexo === 'm'){
+    //     return "Masculino";
+    //   } else if (sexo === 'F' | sexo === 'f'){
+    //     return "Feminino";
+    //   } else {
+    //     return 'Outro';
+    //   }
+    // }
+
+      switch(sexo) {
+        case 'M':
+        case 'm':
+          return 'Masculino';
+        case 'F':
+        case 'f':
+          return 'Feminino';
+        default:
+          return 'Outro';
       }
     }
 
-    var resultado = retornaSexo('f');
+    var resultado = retornaSexo('fd');
 
     console.log(resultado);
   </script>  
