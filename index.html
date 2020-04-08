@@ -8,15 +8,21 @@
 <body>
 
   <script>
-    function soma(num1, num2){
-      var resultado = num1 + num2;
-
-      return resultado;
+    function retornaSexo(sexo){
+      // M, F
+      // Masculino, Feminino
+      if(sexo === 'M' | sexo === 'm'){
+        return "Masculino";
+      } else if (sexo === 'F' | sexo === 'f'){
+        return "Feminino";
+      } else {
+        return 'Outro';
+      }
     }
 
-    var chamada_funcao = soma(12, 38.3);
+    var resultado = retornaSexo('f');
 
-    console.log(chamada_funcao);
+    console.log(resultado);
   </script>  
 </body>
 </html>
