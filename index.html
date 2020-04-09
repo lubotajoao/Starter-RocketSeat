@@ -7,22 +7,15 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" id="nome" />
+      <div class="box"></div>
     </div>
 
     <script>
-      var liknkElement = document.createElement("a");
-      liknkElement.setAttribute("href", "https://rocketseat.com.br");
-      liknkElement.setAttribute("title", "Site da RocketSeat");
+      var boxElement = document.querySelector('.box');
 
-      var textElement = document.createTextNode("Acessar o site da RocketSeat");
-      liknkElement.appendChild(textElement);
-
-      var containerElement = document.querySelector("#app");
-      containerElement.appendChild(liknkElement);
-
-      var inputElement = document.querySelector('#nome');
-      containerElement.removeChild(inputElement);
+      boxElement.style.width = 100;
+      boxElement.style.height = 100;
+      boxElement.style.backgroundColor = '#f00';
     </script>
   </body>
 </html>
