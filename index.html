@@ -7,24 +7,20 @@
   </head>
   <body>
     <script>
-      // Estrutura de Repetição
-      // for, while
-
-      // Utilizar o for quando souber o tamanho do intervalo
-
-      // While é geralmente utilizado quando não se sabe o término de um fluxo
-      // um escopo.
-      // quando não se sabe o término de um execução
-
-      // for (var i = 0; i <= 100; i++){
-      //   console.log(i);
+      // Intervalo e timeout
+      // setInterval -> de quanto em quanto tempo algo deve ser executado.
+      // function exibeAlgo(){
+      //   console.log('Hello World');
       // }
 
-      var j = 0;
-      while (j <= 100) {
-        console.log(j);
-        j++;
+      // setInterval(exibeAlgo, 1000);
+
+      // setTimeout -> quanto tempo de espera para que uma dada operação seja executada.
+      function exibeAlgo() {
+        console.log("Hello World");
       }
+
+      setTimeout(exibeAlgo, 5000);
     </script>
   </body>
 </html>
