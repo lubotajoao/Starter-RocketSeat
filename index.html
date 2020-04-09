@@ -6,21 +6,14 @@
     <title>Curso JavaScript</title>
   </head>
   <body>
+    <div id="app">
+      <button onclick="mostraAlerta()">Me pressione</button>
+    </div>
+
     <script>
-      // Intervalo e timeout
-      // setInterval -> de quanto em quanto tempo algo deve ser executado.
-      // function exibeAlgo(){
-      //   console.log('Hello World');
-      // }
-
-      // setInterval(exibeAlgo, 1000);
-
-      // setTimeout -> quanto tempo de espera para que uma dada operação seja executada.
-      function exibeAlgo() {
-        console.log("Hello World");
+      function mostraAlerta() {
+        alert("Botão foi clicado");
       }
-
-      setTimeout(exibeAlgo, 5000);
     </script>
   </body>
 </html>
