@@ -1,10 +1,31 @@
-var xhr = new XMLHttpRequest();
+/**
+ * Promises
+ */
 
-xhr.open("GET", "https://api.github.com/users/diego3g");
-xhr.send(null);
+var minhaPromise = function () {
+  return new Promise(function (resolve, reject) {
+    var xhr = new XMLHttpRequest();
 
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4) {
-    console.log(JSON.parse(xhr.responseText));
-  }
+    xhr.open("GET", "https://api.github.com/users/lubotajoao");
+    xhr.send(null);
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr === 200) {
+          resolve(JSON.parse(xhr.responseText));
+        } else {
+          reject("Erro na requição");
+        }
+        console.log(JSON.parse(xhr.responseText));
+      }
+    };
+  });
 };
+
+minhaPromise()
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.warn(error);
+  });
