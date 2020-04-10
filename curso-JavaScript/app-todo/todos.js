@@ -2,11 +2,7 @@ var listElement = document.querySelector("#app ul"); // Dentro da div app está 
 var inputElement = document.querySelector("#app input");
 var buttonElement = document.querySelector("#app button");
 
-var todos = [
-  "Fazer Café",
-  "Estudar JavaScript",
-  "Acessar Comunidade da RocketSeat",
-];
+var todos = JSON.parse(localStorage.getItem("list_todos") || []);
 
 /**
  * Função para renderizar os TODOs na tela
@@ -48,6 +44,7 @@ function addTodo() {
   inputElement.value = "";
 
   renderTodos();
+  saveToStorage();
 }
 
 buttonElement.onclick = addTodo;
@@ -59,4 +56,13 @@ function deleteTodo(pos) {
   todos.splice(pos, 1);
 
   renderTodos();
+  saveToStorage();
+}
+
+/**
+ * Método para fazer a persistência local de dados adicinados
+ * Local Storage
+ */
+function saveToStorage() {
+  localStorage.setItem("list_todos", JSON.stringify(todos));
 }
