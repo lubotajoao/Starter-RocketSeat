@@ -1,20 +1,10 @@
-/**
- * Variáveis e Constantes de Escopo
- */
+function teste(x) {
+  let y = 2;
+  if (x > 5) {
+    let y = 4;
 
-// // Permitida a mudanca de valor da variavel
-// var numero = 1;
-// numero = 3;
+    console.log(x, y);
+  }
+}
 
-// // Const nao permite a mudanca de valor da variavel
-// const numero = 2;
-// numero = 5; // resultara' em erro
-
-// Mas a sobreescrita e' permitida - mudanca
-const usuario = {
-  nome: "Lubota",
-};
-
-usuario.nome = "Jorge";
-
-console.log(usuario);
+teste(19);
