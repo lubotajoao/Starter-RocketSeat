@@ -1,10 +1,19 @@
 "use strict";
 
 /**
- * Template Literals
+ * Object Short Syntax
  */
 var nome = "Lubota";
-var idade = 30;
-console.log("Meu nome é " + nome + " e tenho " + idade + " anos."); //usando template literals
+var idade = 30; // const usuario = {
+//   nome: nome,
+//   idade: idade,
+//   empresa: 'Lenght'
+// }
+// Aplicando OSS
 
-console.log("Meu nome \xE9 ".concat(nome, " e tenho ").concat(idade, " anos."));
+var usuario = {
+  nome: nome,
+  idade: idade,
+  empresa: "Lenght"
+};
+console.log(usuario);

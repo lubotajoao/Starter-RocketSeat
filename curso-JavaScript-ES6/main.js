@@ -1,11 +1,21 @@
 /**
- * Template Literals
+ * Object Short Syntax
  */
 
 const nome = "Lubota";
 const idade = 30;
 
-console.log("Meu nome é " + nome + " e tenho " + idade + " anos.");
+// const usuario = {
+//   nome: nome,
+//   idade: idade,
+//   empresa: 'Lenght'
+// }
 
-//usando template literals
-console.log(`Meu nome é ${nome} e tenho ${idade} anos.`);
+// Aplicando OSS
+const usuario = {
+  nome,
+  idade,
+  empresa: "Lenght",
+};
+
+console.log(usuario);
