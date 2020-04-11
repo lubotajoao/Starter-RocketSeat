@@ -1,0 +1,4 @@
+{
+  // preset-env vai converter o codigo para diferentes navegadores
+  "presets": ["@babel/preset-env"]
+}
