@@ -1,4 +1,5 @@
 {
   // preset-env vai converter o codigo para diferentes navegadores
-  "presets": ["@babel/preset-env"]
+  "presets": ["@babel/preset-env"],
+  "plugins": ["@babel/plugin-transform-async-to-generator"]
 }
