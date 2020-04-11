@@ -1,34 +1,11 @@
 /**
- * Conceito de Herança
+ * Métodos Estáticos
  */
 
-class List {
-  constructor() {
-    this.data = [];
-  }
-
-  add(data) {
-    this.data.push(data);
-    console.log(this.data);
+class Matematica {
+  static soma(a, b) {
+    return a + b;
   }
 }
 
-class TodoList extends List {
-  constructor() {
-    super();
-
-    this.usuario = "Lubota";
-  }
-
-  mostraUsuario() {
-    console.log(this.usuario);
-  }
-}
-
-const MinhaLista = new TodoList();
-
-document.getElementById("novotodo").onclick = function () {
-  MinhaLista.add("Novo Todo");
-};
-
-MinhaLista.mostraUsuario();
+console.log(Matematica.soma(1, 3));
