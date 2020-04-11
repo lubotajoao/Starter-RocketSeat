@@ -1,21 +1,3 @@
-/**
- * Object Short Syntax
- */
+import { soma } from "./functions";
 
-const nome = "Lubota";
-const idade = 30;
-
-// const usuario = {
-//   nome: nome,
-//   idade: idade,
-//   empresa: 'Lenght'
-// }
-
-// Aplicando OSS
-const usuario = {
-  nome,
-  idade,
-  empresa: "Lenght",
-};
-
-console.log(usuario);
+console.log(soma(1, 3));
