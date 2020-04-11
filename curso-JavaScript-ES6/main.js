@@ -1,16 +1,22 @@
-class TodoList {
+/**
+ * Conceito de Herança
+ */
+
+class List {
   constructor() {
-    this.todos = [];
+    this.data = [];
   }
 
-  addTodo() {
-    this.todos.push("Nodo todo");
-    console.log(this.todos);
+  add(data) {
+    this.data.push(data);
+    console.log(this.data);
   }
 }
+
+class TodoList extends List {}
 
 const MinhaLista = new TodoList();
 
-document.getElementById('novotodo').onclick = function (){
-  MinhaLista.addTodo();
-}
+document.getElementById("novotodo").onclick = function () {
+  MinhaLista.add("Novo Todo");
+};
