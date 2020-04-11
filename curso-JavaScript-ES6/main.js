@@ -1,11 +1,20 @@
 /**
- * Métodos Estáticos
+ * Variáveis e Constantes de Escopo
  */
 
-class Matematica {
-  static soma(a, b) {
-    return a + b;
-  }
-}
+// // Permitida a mudanca de valor da variavel
+// var numero = 1;
+// numero = 3;
 
-console.log(Matematica.soma(1, 3));
+// // Const nao permite a mudanca de valor da variavel
+// const numero = 2;
+// numero = 5; // resultara' em erro
+
+// Mas a sobreescrita e' permitida - mudanca
+const usuario = {
+  nome: "Lubota",
+};
+
+usuario.nome = "Jorge";
+
+console.log(usuario);
