@@ -21,6 +21,18 @@ class App {
     this.formEl.onsubmit = (event) => this.addRepository(event);
   }
 
+  setLoading(loading = true) {
+    if (loading === true) {
+      let loadingEl = document.createElement("span");
+      loadingEl.appendChild(document.createTextNode("Carregando"));
+      loadingEl.setAttribute("id", "loading");
+
+      this.formEl.appendChild(loadingEl);
+    } else {
+      document.getElementById("loading").remove();
+    }
+  }
+
   /**
    * Metodo para adicao de repository no respositories (array)
    */
@@ -33,26 +45,35 @@ class App {
       return; // A funcao para de executar neste return.
     }
 
-    const response = await api.get(`/repos/${repotInput}`);
+    this.setLoading();
 
-    const {
-      name,
-      description,
-      html_url,
-      owner: { avatar_url },
-    } = response.data;
+    try {
+      const response = await api.get(`/repos/${repotInput}`);
 
-    this.repositories.push({
-      name,
-      description,
-      avatar_url,
-      html_url,
-    });
+      const {
+        name,
+        description,
+        html_url,
+        owner: { avatar_url },
+      } = response.data;
 
-    // Esta linha limpa a tela quando ha' persistencia de informacoes
-    this.inputEl.value = "";
+      this.repositories.push({
+        name,
+        description,
+        avatar_url,
+        html_url,
+      });
 
-    this.render();
+      // Esta linha limpa a tela quando ha' persistencia de informacoes
+      this.inputEl.value = "";
+
+      this.render();
+    } catch (err) {
+      alert("O repositório não existe!");
+    }
+
+    // De qualquer forma remover a informacao do loading, em caso de sucesso ou falha
+    this.setLoading(false);
   }
 
   /**
