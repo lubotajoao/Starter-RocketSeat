@@ -1,3 +1,5 @@
+import api from "./api";
+
 /**
  * Classe que controlara' toda aplicacao
  */
@@ -6,6 +8,7 @@ class App {
     this.repositories = [];
 
     this.formEl = document.getElementById("repo-form");
+    this.inputEl = document.querySelector("input[name=repository");
     this.listEl = document.getElementById("repo-list");
 
     this.registerHandless();
@@ -21,15 +24,34 @@ class App {
   /**
    * Metodo para adicao de repository no respositories (array)
    */
-  addRepository(event) {
+  async addRepository(event) {
     event.preventDefault(); // Tira o default do html de recarregar a pagina
 
+    const repotInput = this.inputEl.value;
+
+    if (repotInput.length === 0) {
+      return; // A funcao para de executar neste return.
+    }
+
+    const response = await api.get(`/repos/${repotInput}`);
+
+    const {
+      name,
+      description,
+      html_url,
+      owner: { avatar_url },
+    } = response.data;
+
     this.repositories.push({
-      name: "RocketSeat.com.br",
-      description: "Tire a sua ideia do papel e dê vida à sua StartUp.",
-      avatar_url: "https://avatars0.githubusercontent.com/u/28929274?v=4",
-      html_url: "http://github.com/rocketseat",
+      name,
+      description,
+      avatar_url,
+      html_url,
     });
+
+    // Esta linha limpa a tela quando ha' persistencia de informacoes
+    this.inputEl.value = "";
+
     this.render();
   }
 
@@ -53,6 +75,7 @@ class App {
 
       let linkEl = document.createElement("a");
       linkEl.setAttribute("target", "_blank");
+      linkEl.setAttribute("href", repo.html_url);
       linkEl.appendChild(document.createTextNode("Acessar"));
 
       let listItemEl = document.createElement("li");
