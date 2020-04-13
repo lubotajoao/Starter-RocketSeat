@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongosePaginate = require("mongoose-paginate");
 
 // Determinando a estrutura do banco de dados
 const ProductSchema = new mongoose.Schema({
@@ -19,6 +20,8 @@ const ProductSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
+
+ProductSchema.plugin(mongosePaginate);
 
 // Criando a tabela no Product no banco
 mongoose.model("Product", ProductSchema);
