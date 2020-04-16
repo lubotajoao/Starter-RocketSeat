@@ -8,4 +8,11 @@ module.exports = {
 
     return response.json(products);
   },
+
+  async store(request, response) {
+    // Criacao de um novo produto
+    const product = await Product.create(request.body);
+
+    return response.json(product);
+  },
 };
