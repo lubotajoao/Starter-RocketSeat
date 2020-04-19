@@ -13,16 +13,9 @@ mongoose.connect("mongodb://localhost:27017/nodeapi", {
 
 // Efetivando a criação do model da aplicação
 requireDir("./src/models");
-const Product = mongoose.model("Product");
 
-app.get("/", (request, response) => {
-  Product.create({
-    title: "React Native",
-    description: "Build native apps with React",
-    url: "http://github.com/facebook/react-native",
-  });
-
-  return response.send("Bonjour le monde !!!");
-});
+// Rotas
+//  use e' um curringa que recebera' todo tipo de requisicao
+app.use("/api", require("./src/routes"));
 
 app.listen(3001);
